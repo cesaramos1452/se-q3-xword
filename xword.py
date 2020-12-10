@@ -2,9 +2,15 @@
 # -*- coding: utf-8 -*-
 """Crossword Solver Program"""
 
-__author__ = "???"
+__author__ = "Cesar Ramos"
+import re
 
 # YOUR HELPER FUNCTION GOES HERE
+
+
+def pattern(s):
+    s = s.replace(' ', r'[a-z]')
+    return s
 
 
 def main():
@@ -12,10 +18,14 @@ def main():
         words = f.read().split()
 
     test_word = input(
-        'Please enter a word to solve.\nUse spaces to signify unknown letters: ').lower()
+        ("""Please enter a word to solve.\nUse spaces
+        to signify unknown letters: """)).lower()
 
-    # YOUR ADDITIONAL CODE HERE
-    raise NotImplementedError('Please complete this')
+    s = pattern(test_word)
+
+    for word in words:
+        if re.match(s, word) and len(word) == len(test_word):
+            print(word)
 
 
 if __name__ == '__main__':

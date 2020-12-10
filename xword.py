@@ -18,7 +18,8 @@ def main():
         words = f.read().split()
 
     test_word = input(
-        'Please enter a word to solve.\nUse spaces to signify unknown letters: ').lower()
+        ("""Please enter a word to solve.\nUse spaces
+        to signify unknown letters: """)).lower()
 
     s = pattern(test_word)
 
